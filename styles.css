@@ -1,0 +1,84 @@
+:root{
+  --bg:#0E1620; --bg2:#172230; --bg3:#1F2E40;
+  --amber:#F5A623; --amber2:#E08A00;
+  --text:#F5F7FA; --muted:rgba(245,247,250,.62); --faint:rgba(245,247,250,.40);
+  --stroke:rgba(255,255,255,.08); --success:#34C759;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased;
+}
+a{color:var(--amber);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+.container{max-width:760px;margin:0 auto;padding:0 22px}
+
+/* nav */
+nav{position:sticky;top:0;backdrop-filter:blur(14px);background:rgba(14,22,32,.7);
+  border-bottom:1px solid var(--stroke);z-index:10}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px;color:var(--text)}
+.brand img{width:34px;height:34px;border-radius:9px}
+.navlinks a{color:var(--muted);margin-left:22px;font-weight:600;font-size:15px}
+.navlinks a:hover{color:var(--text);text-decoration:none}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:72px 0 40px}
+.hero::before{content:"";position:absolute;top:-220px;right:-160px;width:620px;height:620px;
+  background:radial-gradient(circle,rgba(245,166,35,.18),transparent 60%);pointer-events:none}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center;position:relative}
+.eyebrow{color:var(--amber);font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:13px;margin-bottom:14px}
+h1{font-size:48px;line-height:1.08;font-weight:850;letter-spacing:-.02em}
+.hero p.sub{margin-top:18px;font-size:19px;color:var(--muted);max-width:30ch}
+.cta{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;border-radius:14px;padding:14px 22px}
+.btn-primary{background:linear-gradient(135deg,var(--amber),var(--amber2));color:#101010}
+.btn-primary:hover{text-decoration:none;filter:brightness(1.05)}
+.btn-ghost{border:1px solid var(--stroke);color:var(--text)}
+.btn-ghost:hover{text-decoration:none;border-color:var(--amber)}
+.phone{justify-self:center;width:280px;border-radius:42px;overflow:hidden;border:8px solid #05080c;
+  box-shadow:0 30px 70px rgba(0,0,0,.55);background:#000}
+.phone video{display:block;width:100%}
+
+/* sections */
+section.block{padding:54px 0;border-top:1px solid var(--stroke)}
+h2{font-size:30px;font-weight:800;letter-spacing:-.01em;margin-bottom:8px}
+.lead{color:var(--muted);font-size:17px;margin-bottom:30px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.card{background:var(--bg2);border:1px solid var(--stroke);border-radius:18px;padding:22px}
+.card .ic{font-size:22px}
+.card h3{font-size:18px;margin:10px 0 6px}
+.card p{color:var(--muted);font-size:15px}
+.steps{counter-reset:s;display:grid;gap:14px}
+.step{display:flex;gap:16px;align-items:flex-start;background:var(--bg2);border:1px solid var(--stroke);
+  border-radius:16px;padding:18px 20px}
+.step .n{counter-increment:s;flex:0 0 auto;width:34px;height:34px;border-radius:50%;
+  background:var(--amber);color:#101010;font-weight:800;display:grid;place-items:center}
+.step .n::before{content:counter(s)}
+.step h3{font-size:17px;margin-bottom:3px}
+.step p{color:var(--muted);font-size:15px}
+
+/* content pages */
+.page{padding:48px 0 80px}
+.page h1{font-size:36px;margin-bottom:6px}
+.page .updated{color:var(--faint);font-size:14px;margin-bottom:28px}
+.page h2{font-size:21px;margin:30px 0 8px}
+.page p{color:var(--muted);margin-bottom:12px}
+.page ul{color:var(--muted);margin:0 0 14px 22px}
+.page li{margin-bottom:7px}
+.callout{background:var(--bg2);border:1px solid var(--stroke);border-left:3px solid var(--amber);
+  border-radius:12px;padding:16px 18px;margin:18px 0;color:var(--text)}
+
+/* footer */
+footer{border-top:1px solid var(--stroke);padding:30px 0;color:var(--faint);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer a{color:var(--muted);margin-left:18px}
+
+@media(max-width:760px){
+  .hero .wrap{grid-template-columns:1fr;text-align:center}
+  h1{font-size:38px}.hero p.sub{margin:18px auto 0}
+  .cta{justify-content:center}.grid{grid-template-columns:1fr}
+  .phone{order:-1}
+}
